@@ -2,13 +2,13 @@
 
 @section('content')
     
-    <a href="{{ route('category.create') }}">Create</a>
+    <a class="btn btn-success my-3" href="{{ route('category.create') }}">Create</a>
 
-    <table>
+    <table class="table mb-3">
         <thead>
             <tr>
-                <td>Name </td>
-                <td>Actions</td>
+                <th>Name </th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -16,12 +16,12 @@
                 <tr>
                     <td>{{ $c->name }} </td>
                     <td>
-                        <a href="{{ route('category.edit', $c) }}">Modify</a>
-                        <a href="{{ route('category.show', $c) }}">Show</a>
+                        <a class="btn btn-primary my-2" href="{{ route('category.edit', $c) }}">Modify</a>
+                        <a class="btn btn-primary my-2" href="{{ route('category.show', $c) }}">Show</a>
                         <form method="post" action="{{ route('category.destroy', $c) }}">
                             @csrf
                             @method('DELETE')
-                            <button type="submit"> Delete </button>
+                            <button class="btn btn-danger my-2" type="submit"> Delete </button>
                         </form>
                     </td>
                 </tr>
