@@ -20,7 +20,7 @@ class CreatePostsTable extends Migration
             $table->text('description');
             $table->text('content');
             $table->string('image');
-            $table->enum('posted', ['yes', 'no']);
+            $table->enum('posted', ['yes', 'no'])->default('no');
             $table->timestamps();
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
         });
