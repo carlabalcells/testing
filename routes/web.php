@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\PostController;
 use App\Http\Controllers\web\BlogController;
@@ -30,7 +31,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth','admin']], functi
     })->name('dashboard');
     Route::resources([
         'post' => PostController::class,
-        'category' => CategoryController::class
+        'category' => CategoryController::class,
+        'user' => UserController::class
     ]);
 });
 
