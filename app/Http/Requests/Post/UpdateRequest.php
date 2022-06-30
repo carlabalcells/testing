@@ -35,7 +35,7 @@ class UpdateRequest extends FormRequest
     {
         return [ 
             "title" => "required|min:5|max:200",
-            "slug" => "required|min:5|max:200|unique:posts,slug,".$this->route("post")->id,
+            "slug" => "min:5|max:200|unique:posts,slug,".$this->route("post")->id,
             "description" => "required|min:7",
             "content" => "required|min:7",            
             "category_id" => "required|integer",

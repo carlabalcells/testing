@@ -20,6 +20,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/vue/{n1?}/{n2?}', function () {
+    return view('vue');
+});
+
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth','admin']], function () {    
     Route::get('/', function () {
         return view('dashboard');

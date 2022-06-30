@@ -12,7 +12,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        return response()->json(Post::paginate(10));
+        return response()->json(Post::with('category')->paginate(4));
     }
 
     public function all()
@@ -39,6 +39,15 @@ class PostController extends Controller
     public function update(UpdateRequest $request, Post $post)
     {
         $post->update($request->validated());
+        return response()->json($post);
+    }
+
+    public function upload(Request $request, Post $post){
+        
+        $data["image"] = $filename = time().'.'.$request['image']->extension();
+        $request->image->move(public_path("image/otro"), $filename);        
+
+        $post->update($data);
         return response()->json($post);
     }
 
